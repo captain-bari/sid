@@ -1,0 +1,2950 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CreatewithSid | B2B Content Writer</title>
+  <style>
+    /* Base Styles */
+    :root {
+      --primary: #e63946;
+      --primary-dark: #c1121f;
+      --secondary: #b1b1b1;
+      --dark: #121212;
+      --darker: #0a0a0a;
+      --light: #f8f9fa;
+      --accent: #ff4d6d;
+      --gray-100: #2a2a2a;
+      --gray-200: #333333;
+      --gray-300: #444444;
+      --success: #4dd599;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      color: var(--light);
+      line-height: 1.6;
+      font-size: 16px;
+      background-color: var(--dark);
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    
+    h1 {
+      font-size: 3rem;
+    }
+    
+    h2 {
+      font-size: 2.25rem;
+      margin-bottom: 2rem;
+    }
+    
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      margin-bottom: 1.5rem;
+    }
+    
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    a:hover {
+      color: var(--accent);
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      font-weight: 600;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+    }
+    
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--light);
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+    }
+    
+    section {
+      padding: 5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    
+    .section-title h2 {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 4px;
+      background-color: var(--primary);
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    /* Header Styles */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.2rem 0;
+      background-color: rgba(10, 10, 10, 0.95);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      transition: all 0.4s ease;
+    }
+    
+    .header-scrolled {
+      padding: 0.8rem 0;
+      background-color: rgba(10, 10, 10, 0.98);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--light);
+    }
+    
+    .logo span {
+      color: var(--primary);
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-links li {
+      margin-left: 2rem;
+    }
+    
+    .nav-links a {
+      color: var(--light);
+      font-weight: 500;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    
+    .mobile-menu {
+      display: none;
+      cursor: pointer;
+      color: var(--light);
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background-color: var(--darker);
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .hero:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(to top, var(--dark), transparent);
+      z-index: 1;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero h1 {
+      margin-bottom: 1.5rem;
+      font-size: 3.5rem;
+      line-height: 1.2;
+    }
+    
+    .hero h1 span {
+      color: var(--primary);
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin-bottom: 2.5rem;
+    }
+    
+    .trusted-by {
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .trusted-by p {
+      font-size: 1rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+    
+    .client-logos {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+    }
+    
+    .client-logos span {
+      font-weight: 600;
+      color: var(--light);
+      opacity: 0.8;
+      transition: all 0.3s ease;
+    }
+    
+    .client-logos span:hover {
+      color: var(--primary);
+      opacity: 1;
+    }
+    
+    /* Story Section */
+    .story {
+      background-color: var(--darker);
+      position: relative;
+    }
+    
+    .story:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: linear-gradient(to top, var(--dark), transparent);
+    }
+    
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: var(--gray-300);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+    
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      perspective: 1000px;
+    }
+    
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      top: 25px;
+      z-index: 1;
+    }
+    
+    .left {
+      left: 0;
+    }
+    
+    .right {
+      left: 50%;
+    }
+    
+    .left::after {
+      right: -10px;
+    }
+    
+    .right::after {
+      left: -10px;
+    }
+    
+    .timeline-content {
+      padding: 25px;
+      background-color: var(--gray-200);
+      border-radius: 8px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transition: all 0.6s ease;
+    }
+    
+    .timeline-content h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+    
+    /* Expertise Section */
+    .expertise {
+      background-color: var(--dark);
+    }
+    
+    .expertise-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 2rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      justify-content: center;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+    }
+    
+    .expertise-grid::-webkit-scrollbar {
+      height: 6px;
+    }
+    
+    .expertise-grid::-webkit-scrollbar-track {
+      background: var(--gray-100);
+      border-radius: 10px;
+    }
+    
+    .expertise-grid::-webkit-scrollbar-thumb {
+      background: var(--gray-300);
+      border-radius: 10px;
+    }
+    
+    .expertise-card {
+      background-color: var(--gray-200);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border-bottom: 4px solid transparent;
+      min-width: 280px;
+      max-width: 350px;
+      flex: 1;
+    }
+    
+    .expertise-card:hover {
+      transform: translateY(-15px);
+      border-bottom: 4px solid var(--primary);
+    }
+    
+    .expertise-card h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    @media (max-width: 992px) {
+      .expertise-card {
+        min-width: 250px;
+        padding: 2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .expertise-card {
+        min-width: 220px;
+        padding: 1.8rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .expertise-card {
+        min-width: 200px;
+        padding: 1.5rem;
+      }
+      
+      .expertise-card h3 {
+        font-size: 1.2rem;
+      }
+    }
+    
+    /* Portfolio Grid (maximize available space) */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 2rem;
+      width: 100%;
+    }
+    
+    @media (min-width: 768px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 1400px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    
+    .portfolio-item {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      background-color: var(--gray-200);
+    }
+    
+    .portfolio-item:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .portfolio-content {
+      padding: 1.8rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .portfolio-content h3 {
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .portfolio-content .ranking {
+      color: var(--success);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    
+    .portfolio-content p {
+      margin-bottom: 1.5rem;
+      color: var(--light);
+      flex-grow: 1;
+    }
+    
+    .portfolio-content .keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .keyword {
+      background-color: var(--gray-300);
+      color: var(--light);
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.875rem;
+    }
+    
+    .portfolio-content .btn {
+      align-self: flex-start;
+      margin-top: auto;
+    }
+    
+    /* Process Section */
+    .process {
+      background-color: var(--dark);
+    }
+    
+    .process-steps {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .process-step {
+      display: flex;
+      margin-bottom: 4rem;
+      position: relative;
+      transition: all 0.5s ease;
+    }
+    
+    .process-step:last-child {
+      margin-bottom: 0;
+    }
+    
+    .process-step:hover .step-number {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(230, 57, 70, 0.4);
+    }
+    
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 50%;
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-right: 2.5rem;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(230, 57, 70, 0.3);
+    }
+    
+    .step-content {
+      flex: 1;
+      background-color: var(--gray-200);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .step-content h3 {
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+    
+    .step-content ul {
+      list-style-type: none;
+    }
+    
+    .step-content ul li {
+      padding-left: 1.8rem;
+      position: relative;
+      margin-bottom: 0.8rem;
+    }
+    
+    .step-content ul li:before {
+      content: '✓';
+      color: var(--success);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+    
+    /* Client Showcase */
+    .client-showcase {
+      background-color: var(--darker);
+    }
+    
+    .showcase-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .client-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    
+    .client-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      border-radius: 12px;
+      background-color: var(--gray-200);
+      transition: all 0.4s ease;
+      border-bottom: 3px solid transparent;
+    }
+    
+    .client-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      border-bottom: 3px solid var(--primary);
+    }
+    
+    .client-name {
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-top: 1rem;
+      color: var(--light);
+    }
+    
+    .client-type {
+      color: var(--secondary);
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+    }
+    
+    .statistics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2.5rem;
+    }
+    
+    .stat-item {
+      text-align: center;
+      transition: all 0.4s ease;
+      padding: 2rem;
+      border-radius: 12px;
+      background-color: var(--gray-200);
+    }
+    
+    .stat-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      color: var(--light);
+      font-size: 1.1rem;
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      background-color: var(--dark);
+    }
+    
+    .testimonial-slider {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .testimonial-item {
+      background-color: var(--gray-200);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      margin-bottom: 3rem;
+      border-left: 5px solid var(--primary);
+      transition: all 0.4s ease;
+    }
+    
+    .testimonial-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .testimonial-content {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding: 0 0.5rem;
+    }
+    
+    .testimonial-content:before,
+    .testimonial-content:after {
+      content: '"';
+      font-size: 2rem;
+      color: var(--primary);
+      position: absolute;
+      line-height: 1;
+    }
+    
+    .testimonial-content:before {
+      top: -10px;
+      left: -15px;
+    }
+    
+    .testimonial-content:after {
+      bottom: -20px;
+      right: -15px;
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-info {
+      margin-left: 1rem;
+    }
+    
+    .author-name {
+      font-weight: 600;
+      color: var(--light);
+    }
+    
+    .author-role {
+      color: var(--secondary);
+      font-size: 0.875rem;
+    }
+    
+    /* Services */
+    .services {
+      background-color: var(--darker);
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+    
+    .service-card {
+      padding: 2.5rem;
+      border-radius: 12px;
+      background-color: var(--gray-200);
+      transition: all 0.5s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .service-card h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+    }
+    
+    .service-price {
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: var(--light);
+      font-size: 1.2rem;
+    }
+    
+    .service-features {
+      list-style-type: none;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+    
+    .service-features li {
+      padding-left: 1.8rem;
+      position: relative;
+      margin-bottom: 0.8rem;
+    }
+    
+    .service-features li:before {
+      content: '✓';
+      color: var(--success);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+    
+    .service-card .btn {
+      align-self: flex-start;
+      margin-top: auto;
+    }
+    
+    /* Contact */
+    .contact {
+      background-color: var(--dark);
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+    
+    .contact-info h3 {
+      margin-bottom: 1.5rem;
+      color: var(--light);
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-item i {
+      width: 30px;
+      color: var(--primary);
+      margin-right: 1rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--gray-200);
+      color: var(--primary);
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+    }
+    
+    input, textarea {
+      background-color: var(--gray-200);
+      color: var(--light);
+      border: 1px solid var(--gray-300);
+    }
+    
+    input:focus, textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--darker);
+      color: var(--light);
+      padding: 3rem 0;
+      text-align: center;
+    }
+    
+    .footer-content p {
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+    
+    .copyright {
+      margin-top: 2.5rem;
+      color: var(--secondary);
+      font-size: 0.875rem;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    .fade-in-up {
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .scale-in {
+      animation: scaleIn 1s ease-out;
+    }
+    
+    .slide-right {
+      animation: slideInRight 1s ease-out;
+    }
+    
+    .slide-left {
+      animation: slideInLeft 1s ease-out;
+    }
+    
+    .animated {
+      opacity: 0;
+    }
+    
+    .animated.fadeInUp {
+      transform: translateY(50px);
+    }
+    
+    .animated.scaleIn {
+      transform: scale(0.9);
+    }
+    
+    .animated.slideRight {
+      transform: translateX(-50px);
+    }
+    
+    .animated.slideLeft {
+      transform: translateX(50px);
+    }
+    
+    .animated.show {
+      opacity: 1;
+      transform: translateY(0) scale(1) translateX(0);
+      transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .showcase-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      section {
+        padding: 5rem 0;
+      }
+      
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(10, 10, 10, 0.98);
+        transition: all 0.4s ease;
+        z-index: 999;
+      }
+      
+      .nav-links.active {
+        right: 0;
+      }
+      
+      .nav-links li {
+        margin: 1.5rem 0;
+      }
+      
+      .mobile-menu {
+        display: block;
+      }
+      
+      .client-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-item::after {
+        left: 15px;
+      }
+      
+      .left::after, .right::after {
+        left: 15px;
+      }
+      
+      .right {
+        left: 0%;
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="container header-container">
+      <a href="#" class="logo">Create<span>with</span>Sid</a>
+      <div class="mobile-menu">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact" class="btn btn-primary">Let's Talk</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Swipe Instruction (only shows on mobile) -->
+  <div class="swipe-instruction">
+    <div class="swipe-icon">
+      <i class="fas fa-hand-point-up"></i>
+      <div class="swipe-arrow"></div>
+    </div>
+    <p>Swipe to explore more</p>
+  </div>
+  
+  <style>
+    /* Mobile Swipe Instruction */
+    .swipe-instruction {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 50px;
+      z-index: 100;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      animation: fadeInOut 3s ease-in-out forwards;
+    }
+    
+    .swipe-icon {
+      position: relative;
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .swipe-arrow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 2px;
+      background-color: white;
+      transform: translate(-5px, 5px) rotate(45deg);
+      animation: swipeMotion 1.5s infinite;
+    }
+    
+    .swipe-instruction p {
+      margin: 0;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    
+    @keyframes swipeMotion {
+      0% { transform: translate(-5px, 5px) rotate(45deg); opacity: 0; }
+      50% { transform: translate(5px, 5px) rotate(45deg); opacity: 1; }
+      100% { transform: translate(15px, 5px) rotate(45deg); opacity: 0; }
+    }
+    
+    @keyframes fadeInOut {
+      0% { opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { opacity: 0; display: none; }
+    }
+    
+    @media (max-width: 768px) {
+      .swipe-instruction {
+        display: flex;
+      }
+    }
+  </style>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content fade-in-up">
+        <h1>Transform Your <span>Content</span><br>Into a <span>Traffic</span> Magnet</h1>
+        <p>Your B2B SaaS brand deserves content that does more than just rank. I create strategic, SEO-driven articles that capture your audience's attention and guide them toward taking action.</p>
+        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+        <a href="#portfolio" class="btn btn-outline" style="margin-left: 1rem;">See My Work</a>
+        
+        <div class="trusted-by">
+          <p>Trusted by brands like:</p>
+          <div class="client-logos">
+            <span>Transifex</span>
+            <span>Impekable</span>
+            <span>Cacheflow</span>
+            <span>IxDF</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Traffic Solution Section -->
+  <section id="traffic-solution" class="traffic-solution">
+    <div class="container">
+      <div class="section-title">
+        <h2>Looking to Increase Your Organic Traffic?</h2>
+      </div>
+      
+      <div class="solution-container">
+        <div class="question-block animated fadeInUp">
+          <h3>What's the best way to drive sustainable traffic to your SaaS website?</h3>
+          <p>Getting quality visitors to your SaaS website is tough these days. You have several options, but when it comes to long-term value, nothing works better than well-written, SEO-focused blog content.</p>
+        </div>
+        
+        <div class="solutions-grid">
+          <div class="solution-card animated slideRight">
+            <div class="solution-header">
+              <div class="solution-icon"><i class="fas fa-ad"></i></div>
+              <h4>Paid Advertising</h4>
+            </div>
+            <div class="solution-content">
+              <p>Quick traffic but stops when you stop paying. High customer acquisition costs and increasing competition.</p>
+              <div class="rating">
+                <span class="star filled"><i class="fas fa-star"></i></span>
+                <span class="star filled"><i class="fas fa-star"></i></span>
+                <span class="star filled"><i class="fas fa-star"></i></span>
+                <span class="star"><i class="fas fa-star"></i></span>
+                <span class="star"><i class="fas fa-star"></i></span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="solution-card animated slideRight">
+            <div class="solution-header">
+              <div class="solution-icon"><i class="fas fa-share-alt"></i></div>
+              <h4>Social Media</h4>
+            </div>
+            <div class="solution-content">
+              <p>Good for brand awareness but algorithmic changes make organic reach challenging. Time-intensive with variable results.</p>
+              <div class="rating">
+                <span class="star filled"><i class="fas fa-star"></i></span>
+                <span class="star filled"><i class="fas fa-star"></i></span>
+                <span class="star filled"><i class="fas fa-star"></i></span>
+                <span class="star"><i class="fas fa-star"></i></span>
+                <span class="star"><i class="fas fa-star"></i></span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="solution-card animated slideRight best-solution">
+            <div class="solution-tag">Best Solution</div>
+            <div class="solution-header">
+              <div class="solution-icon"><i class="fas fa-newspaper"></i></div>
+              <h4>Strategic Blog Content</h4>
+            </div>
+            <div class="solution-content">
+              <p>Creates compounding value over time. Continues to drive traffic months and years after publication.</p>
+              <div class="rating">
+                <span class="star filled"><i class="fas fa-star"></i></span>
+                <span class="star filled"><i class="fas fa-star"></i></span>
+                <span class="star filled"><i class="fas fa-star"></i></span>
+                <span class="star filled"><i class="fas fa-star"></i></span>
+                <span class="star filled"><i class="fas fa-star"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="why-blogs animated fadeInUp">
+          <h3>Why Strategic Blog Content Delivers Superior Results</h3>
+          
+          <div class="benefits-grid">
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-chart-line"></i></div>
+              <div class="benefit-content">
+                <h4>Compounding Growth</h4>
+                <p>Unlike paid ads that stop working when you stop paying, strategic blog content continues to drive traffic and leads for years.</p>
+              </div>
+            </div>
+            
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-bullseye"></i></div>
+              <div class="benefit-content">
+                <h4>Intent-Based Traffic</h4>
+                <p>SEO-optimized blog content attracts users actively searching for solutions to their problems—delivering higher-quality leads.</p>
+              </div>
+            </div>
+            
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-trophy"></i></div>
+              <div class="benefit-content">
+                <h4>Builds Authority</h4>
+                <p>Consistent, high-quality content establishes your brand as an authority in your industry, building trust with potential customers.</p>
+              </div>
+            </div>
+            
+            <div class="benefit-item">
+              <div class="benefit-icon"><i class="fas fa-hand-holding-usd"></i></div>
+              <div class="benefit-content">
+                <h4>Lower CAC</h4>
+                <p>Well-executed content marketing typically results in a significantly lower customer acquisition cost compared to paid channels.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    /* Traffic Solution Section Styles */
+    .traffic-solution {
+      background-color: var(--darker);
+      position: relative;
+    }
+    
+    .solution-container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .question-block {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .question-block h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: var(--light);
+    }
+    
+    .question-block p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--secondary);
+    }
+    
+    .solutions-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    
+    .solution-card {
+      background-color: var(--gray-200);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      transition: all 0.4s ease;
+      position: relative;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .solution-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .solution-card.best-solution {
+      border: 2px solid var(--primary);
+      transform: scale(1.05);
+      z-index: 1;
+    }
+    
+    .solution-card.best-solution:hover {
+      transform: scale(1.05) translateY(-10px);
+    }
+    
+    .solution-tag {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--primary);
+      color: white;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    
+    .solution-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .solution-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: rgba(230, 57, 70, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    
+    .solution-header h4 {
+      font-size: 1.2rem;
+      margin: 0;
+      color: var(--light);
+    }
+    
+    .solution-content {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .solution-content p {
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .rating {
+      display: flex;
+      gap: 0.3rem;
+    }
+    
+    .star {
+      color: var(--gray-300);
+    }
+    
+    .star.filled {
+      color: var(--primary);
+    }
+    
+    .why-blogs {
+      margin-top: 2rem;
+    }
+    
+    .why-blogs h3 {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 1.8rem;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+    
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      background-color: var(--gray-200);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+    
+    .benefit-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+    
+    .benefit-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: rgba(230, 57, 70, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      color: var(--primary);
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    
+    .benefit-content h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+    
+    .benefit-content p {
+      margin: 0;
+      color: var(--secondary);
+    }
+    
+    @media (max-width: 992px) {
+      .solutions-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .solution-card.best-solution {
+        grid-column: span 2;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .question-block h3 {
+        font-size: 1.5rem;
+      }
+      
+      .question-block p {
+        font-size: 1rem;
+      }
+      
+      .why-blogs h3 {
+        font-size: 1.5rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .solutions-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .solution-card.best-solution {
+        grid-column: span 1;
+      }
+    }
+  </style>
+
+  <!-- Expertise Section -->
+  <section id="expertise" class="expertise">
+    <div class="container">
+      <div class="section-title">
+        <h2>Core Expertise</h2>
+      </div>
+      
+      <div class="expertise-container">
+        <div class="expertise-card animated scaleIn">
+          <h3>B2B SaaS Content</h3>
+          <p>Helping SaaS companies explain how their products make life easier for their customers.</p>
+        </div>
+        
+        <div class="expertise-card animated scaleIn">
+          <h3>Technical Writing</h3>
+          <p>Translating complex technical concepts into clear, user-friendly content that resonates with both technical and non-technical audiences.</p>
+        </div>
+        
+        <div class="expertise-card animated scaleIn">
+          <h3>SEO Content Strategy</h3>
+          <p>Developing comprehensive content strategies that align with search intent and drive organic traffic through strategic keyword targeting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    /* Completely redesigned Expertise Section */
+    .expertise {
+      background-color: var(--dark);
+    }
+    
+    /* Replace flexible grid with standard block display for mobile-first */
+    .expertise-container {
+      display: block;
+      width: 100%;
+      margin: 0;
+    }
+    
+    .expertise-card {
+      background-color: var(--gray-200);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border-bottom: 4px solid transparent;
+      margin-bottom: 1.5rem;
+      width: 100%;
+      display: block;
+    }
+    
+    .expertise-card:hover {
+      transform: translateY(-10px);
+      border-bottom: 4px solid var(--primary);
+    }
+    
+    .expertise-card h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+    }
+    
+    /* Desktop layout (maximize available space) */
+    @media (min-width: 992px) {
+      .expertise-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        width: 100%;
+      }
+      
+      .expertise-card {
+        flex: 1;
+        width: calc(33.33% - 1.33rem);
+        min-width: 280px;
+        margin-bottom: 0;
+      }
+    }
+  </style>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+      <div class="section-title">
+        <h2>High-Ranking Content</h2>
+      </div>
+      
+      <div class="portfolio-grid">
+        <div class="portfolio-item animated fadeInUp">
+          <div class="portfolio-content">
+            <h3>Transifex Article</h3>
+            <div class="ranking">First Page Ranking</div>
+            <p>Discover the leading AI translation tools transforming the way localization industry operates.</p>
+            <div class="keywords">
+              <span class="keyword">AI translation</span>
+              <span class="keyword">localization</span>
+            </div>
+            <a href="https://www.transifex.com/blog/2024/ai-translation-tool/?utm_campaign=Transifex%20AI%202024&utm_content=285186652&utm_medium=social&utm_source=linkedin&hss_channel=lcp-2808869" target="_blank" class="btn btn-outline">Read Article</a>
+          </div>
+        </div>
+        
+        <div class="portfolio-item animated fadeInUp">
+          <div class="portfolio-content">
+            <h3>Impekable Article</h3>
+            <div class="ranking">Second Page Ranking</div>
+            <p>In-depth guide to a digital transformation strategy for an organization.</p>
+            <div class="keywords">
+              <span class="keyword">winning digital transformation strategy</span>
+            </div>
+            <a href="https://www.impekable.com/the-ultimate-guide-to-a-winning-digital-transformation-strategy/" target="_blank" class="btn btn-outline">Read Article</a>
+          </div>
+        </div>
+        
+        <div class="portfolio-item animated fadeInUp">
+          <div class="portfolio-content">
+            <h3>Cacheflow Article</h3>
+            <div class="ranking">First Page Ranking</div>
+            <p>Learn how to design a seamless and effective sign-up flow that converts visitors into paying customers.</p>
+            <div class="keywords">
+              <span class="keyword">sign-up flow</span>
+              <span class="keyword">SaaS</span>
+            </div>
+            <a href="https://www.getcacheflow.com/post/how-to-optimize-saas-sign-up-flow" target="_blank" class="btn btn-outline">Read Article</a>
+          </div>
+        </div>
+        
+        <div class="portfolio-item animated fadeInUp">
+          <div class="portfolio-content">
+            <h3>IxDF Article</h3>
+            <div class="ranking">First Page Ranking</div>
+            <p>Comprehensive overview of UX portfolio builder and how to choose the best one.</p>
+            <div class="keywords">
+              <span class="keyword">UX portfolio website builder</span>
+              <span class="keyword">UX portfolio builder</span>
+            </div>
+            <a href="https://www.interaction-design.org/literature/article/ux-portfolio-website-builders?srsltid=AfmBOoqEH6eMAVDrxnWmKQ45x_33c8lKy9uR9cBlqpCW6Aqnstd-hmz5" target="_blank" class="btn btn-outline">Read Article</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section id="process" class="process">
+    <div class="container">
+      <div class="section-title">
+        <h2>Content Creation Process</h2>
+      </div>
+      
+      <div class="process-steps">
+        <div class="process-step animated slideRight">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Keyword Research & Analysis</h3>
+            <ul>
+              <li>Identify target keywords with search intent</li>
+              <li>Analyze competition and difficulty</li>
+              <li>Evaluate search volume and trends</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="process-step animated slideRight">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Content Strategy & Outline</h3>
+            <ul>
+              <li>Develop comprehensive content outline</li>
+              <li>Structure content for maximum impact</li>
+              <li>Get outline approval from stakeholders</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="process-step animated slideRight">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Content Creation & Optimization</h3>
+            <ul>
+              <li>Write engaging, SEO-optimized content</li>
+              <li>Incorporate relevant keywords naturally</li>
+              <li>Review and refine based on feedback</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Why Choose Me Section -->
+  <section id="why-choose" class="why-choose">
+    <div class="container">
+      <div class="section-title">
+        <h2>Why Choose an Independent Writer<br>Over an Agency</h2>
+      </div>
+      
+      <div class="comparison-wrapper animated fadeInUp">
+        <div class="comparison-table">
+          <div class="comparison-row header">
+            <div class="comparison-cell"></div>
+            <div class="comparison-cell">Content Agencies</div>
+            <div class="comparison-cell">Working With Me</div>
+          </div>
+          
+          <div class="comparison-row">
+            <div class="comparison-cell feature">
+              <div class="feature-title">Content Strategy Depth</div>
+              <div class="feature-desc">How deeply is your content strategy researched and tailored?</div>
+            </div>
+            <div class="comparison-cell agency">
+              <i class="fas fa-times"></i>
+              <p>Generic templates and mass-produced content calendars without deep audience insights</p>
+            </div>
+            <div class="comparison-cell me">
+              <i class="fas fa-check"></i>
+              <p>Custom strategy based on thorough research and search intent analysis for your specific audience</p>
+            </div>
+          </div>
+          
+          <div class="comparison-row">
+            <div class="comparison-cell feature">
+              <div class="feature-title">Attention to Detail</div>
+              <div class="feature-desc">Who's actually creating your content?</div>
+            </div>
+            <div class="comparison-cell agency">
+              <i class="fas fa-times"></i>
+              <p>Multiple writers with varying skill levels and inconsistent quality control</p>
+            </div>
+            <div class="comparison-cell me">
+              <i class="fas fa-check"></i>
+              <p>One dedicated writer who understands your brand voice and maintains consistent quality</p>
+            </div>
+          </div>
+          
+          <div class="comparison-row">
+            <div class="comparison-cell feature">
+              <div class="feature-title">Communication</div>
+              <div class="feature-desc">How direct is your access to the content creator?</div>
+            </div>
+            <div class="comparison-cell agency">
+              <i class="fas fa-times"></i>
+              <p>Multiple layers of account managers before reaching the actual writer</p>
+            </div>
+            <div class="comparison-cell me">
+              <i class="fas fa-check"></i>
+              <p>Direct communication with the person creating your content for faster iterations</p>
+            </div>
+          </div>
+          
+          <div class="comparison-row">
+            <div class="comparison-cell feature">
+              <div class="feature-title">Technical Expertise</div>
+              <div class="feature-desc">Can complex technical concepts be accurately communicated?</div>
+            </div>
+            <div class="comparison-cell agency">
+              <i class="fas fa-times"></i>
+              <p>General writers who may struggle with technical subjects and industry-specific terminology</p>
+            </div>
+            <div class="comparison-cell me">
+              <i class="fas fa-check"></i>
+              <p>Specialized in SaaS and tech topics with the ability to translate complex concepts clearly</p>
+            </div>
+          </div>
+          
+          <div class="comparison-row">
+            <div class="comparison-cell feature">
+              <div class="feature-title">Focus on Results</div>
+              <div class="feature-desc">Is content measured by quantity or impact?</div>
+            </div>
+            <div class="comparison-cell agency">
+              <i class="fas fa-times"></i>
+              <p>Emphasis on volume and output rather than conversion metrics and business impact</p>
+            </div>
+            <div class="comparison-cell me">
+              <i class="fas fa-check"></i>
+              <p>Quality-focused approach that prioritizes content that drives traffic AND conversions</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    /* Why Choose Me Section */
+    .why-choose {
+      background-color: var(--dark);
+      position: relative;
+    }
+    
+    .comparison-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow-x: auto;
+    }
+    
+    .comparison-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 15px;
+    }
+    
+    .comparison-row {
+      display: flex;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+    
+    .comparison-row:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+    
+    .comparison-row.header {
+      background-color: transparent;
+      box-shadow: none;
+    }
+    
+    .comparison-row.header .comparison-cell {
+      padding: 10px 20px;
+      font-weight: 700;
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--light);
+      background-color: transparent;
+    }
+    
+    .comparison-cell {
+      flex: 1;
+      padding: 20px;
+      border: none;
+    }
+    
+    .feature {
+      flex: 1.2;
+      background-color: var(--gray-100);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .feature-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+    
+    .feature-desc {
+      font-size: 0.85rem;
+      color: var(--secondary);
+    }
+    
+    .agency, .me {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .agency {
+      background-color: var(--gray-200);
+      border-right: 1px solid var(--gray-300);
+    }
+    
+    .me {
+      background-color: var(--gray-200);
+    }
+    
+    .agency i, .me i {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    
+    .agency i {
+      color: #e74c3c;
+    }
+    
+    .me i {
+      color: #2ecc71;
+    }
+    
+    .agency p, .me p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .comparison-row {
+        flex-direction: column;
+        margin-bottom: 30px;
+      }
+      
+      .comparison-row.header {
+        display: none;
+      }
+      
+      .agency, .me {
+        position: relative;
+        padding-top: 40px;
+      }
+      
+      .agency:before, .me:before {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        font-weight: 600;
+      }
+      
+      .agency:before {
+        content: 'Content Agencies';
+        color: #e74c3c;
+      }
+      
+      .me:before {
+        content: 'Working With Me';
+        color: #2ecc71;
+      }
+    }
+  </style>
+
+  <!-- Client Showcase -->
+  <section id="clients" class="client-showcase">
+    <div class="container">
+      <div class="section-title">
+        <h2>Trusted by Industry Leaders</h2>
+      </div>
+      
+      <div class="showcase-container">
+        <!-- Client boxes in a single row -->
+        <div class="client-grid">
+          <div class="client-item animated scaleIn">
+            <div class="client-name">Transifex</div>
+            <div class="client-type">Localization Platform - Enterprise SaaS</div>
+          </div>
+          
+          <div class="client-item animated scaleIn">
+            <div class="client-name">Impekable</div>
+            <div class="client-type">Product Development Consultants - Tech</div>
+          </div>
+          
+          <div class="client-item animated scaleIn">
+            <div class="client-name">Cacheflow</div>
+            <div class="client-type">Revenue Management - FinTech</div>
+          </div>
+          
+          <div class="client-item animated scaleIn">
+            <div class="client-name">IxDF</div>
+            <div class="client-type">UX Design Education - EdTech</div>
+          </div>
+        </div>
+        
+        <!-- Statistics in a single row below clients -->
+        <div class="statistics">
+          <div class="stat-item animated scaleIn">
+            <div class="stat-number">45%</div>
+            <div class="stat-label">First-page Rankings</div>
+          </div>
+          
+          <div class="stat-item animated scaleIn">
+            <div class="stat-number">7+</div>
+            <div class="stat-label">Industry Leaders</div>
+          </div>
+          
+          <div class="stat-item animated scaleIn">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">Articles Published</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    /* Updated Client Showcase Styles */
+    .client-showcase {
+      background-color: var(--darker);
+    }
+    
+    .showcase-container {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+    
+    .client-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      justify-content: center;
+    }
+    
+    .client-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+      border-radius: 12px;
+      background-color: var(--gray-200);
+      transition: all 0.4s ease;
+      border-bottom: 3px solid transparent;
+    }
+    
+    .client-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      border-bottom: 3px solid var(--primary);
+    }
+    
+    .client-name {
+      font-weight: 600;
+      font-size: 1.25rem;
+      margin-top: 1rem;
+      color: var(--light);
+    }
+    
+    .client-type {
+      color: var(--secondary);
+      font-size: 0.875rem;
+      margin-top: 0.5rem;
+    }
+    
+    .statistics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .stat-item {
+      text-align: center;
+      transition: all 0.4s ease;
+      padding: 2rem;
+      border-radius: 12px;
+      background-color: var(--gray-200);
+    }
+    
+    .stat-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+      color: var(--light);
+      font-size: 1.1rem;
+    }
+    
+    @media (max-width: 992px) {
+      .client-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .statistics {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .statistics {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .stat-item {
+        padding: 1.5rem 1rem;
+      }
+      
+      .stat-number {
+        font-size: 2.2rem;
+      }
+      
+      .stat-label {
+        font-size: 0.9rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .client-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .client-item {
+        padding: 1.5rem 1rem;
+      }
+      
+      .client-name {
+        font-size: 1.1rem;
+      }
+      
+      .client-type {
+        font-size: 0.75rem;
+      }
+    }
+  </style>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <div class="section-title">
+        <h2>Client Testimonials</h2>
+      </div>
+      
+      <div class="testimonial-slider">
+        <div class="testimonial-item animated fadeInUp">
+          <div class="testimonial-content">
+            <p>Siddharth is not only knowledgable and skilled in a variety of topics, but he is also good at listening to feedback and consistently growing as time goes on.</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <div class="author-name">George Kasiouras</div>
+              <div class="author-role">Former Content Manager, Transifex</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-item animated fadeInUp">
+          <div class="testimonial-content">
+            <p>I would highly recommend Siddharth for content writing. He is a talented, creative, and dedicated professional, and I have no doubt that he would be a valuable asset to any project.</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <div class="author-name">Aradhana Oberoi</div>
+              <div class="author-role">POC for IxDF</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-item animated fadeInUp">
+          <div class="testimonial-content">
+            <p>I hired Siddharth to develop an SEO strategy for my design and CRO agency, and he exceeded expectations. He delivered ahead of schedule, responded promptly to questions and requests, and the quality of his strategy has already generated a positive ROI for my business. I can't recommend Siddharth highly enough and hope to continue working with him in the new year—he's been an invaluable asset to our team.</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <div class="author-name">Joseph Wheatley</div>
+              <div class="author-role">Founder @ Conversion House</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Packages & Pricing</h2>
+        <p class="pricing-note">I believe in transparent pricing that delivers clear value. No hidden fees, no surprises—just quality content that works.</p>
+      </div>
+      
+      <div class="services-container">
+        <!-- First service card -->
+        <div class="service-card animated slideLeft premium-package">
+          <div class="package-tag">Most Popular</div>
+          <h3>Complete Content Engine</h3>
+          <div class="service-price">$2,900/month</div>
+          <div class="package-description">End-to-end content strategy and creation to fuel your organic growth</div>
+          <ul class="service-features">
+            <li>Comprehensive SEO content strategy</li>
+            <li>Keyword research & competition analysis</li>
+            <li>4 fully-optimized blog posts per month (up to 2,000 words each)</li>
+            <li>Monthly performance reports & strategy adjustments</li>
+            <li>Content promotion recommendations</li>
+            <li>Priority support & 48-hour response time</li>
+          </ul>
+          <div class="ideal-for">
+            <span>Ideal for:</span> Companies ready to establish a strong content presence and drive consistent organic traffic
+          </div>
+          <a href="#contact" class="btn btn-primary">Get Started</a>
+        </div>
+        
+        <!-- Second service card -->
+        <div class="service-card animated slideLeft standard-package">
+          <h3>Keyword-Targeted Content</h3>
+          <div class="service-price">$600/article</div>
+          <div class="package-description">High-quality content created for your specific keywords</div>
+          <ul class="service-features">
+            <li>Strategic content outline development</li>
+            <li>SEO-optimized blog post (up to 2,000 words)</li>
+            <li>Search intent analysis for your keyword</li>
+            <li>Two rounds of revisions included</li>
+            <li>Meta description & title tag suggestions</li>
+            <li>Custom graphics included</li>
+          </ul>
+          <div class="ideal-for">
+            <span>Ideal for:</span> Businesses with an existing strategy looking to fill content gaps
+          </div>
+          <a href="#contact" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+      
+      <div class="custom-package animated fadeInUp">
+        <h3>Need something custom?</h3>
+        <p>I can create tailored packages for specific content needs, including white papers, case studies, email sequences, and more.</p>
+        <a href="#contact" class="btn btn-outline">Let's Discuss Your Needs</a>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    /* Completely redesigned Services Section Styles */
+    .services {
+      background-color: var(--darker);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .pricing-note {
+      max-width: 700px;
+      margin: -1rem auto 2rem;
+      color: var(--secondary);
+      font-style: italic;
+      text-align: center;
+    }
+    
+    /* Replace flexible grid with standard block display for mobile-first */
+    .services-container {
+      display: block;
+      width: 100%;
+      margin: 0 0 3rem 0;
+    }
+    
+    .service-card {
+      padding: 2.5rem;
+      border-radius: 12px;
+      background-color: var(--gray-200);
+      transition: all 0.5s ease;
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      position: relative;
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-card.premium-package {
+      border: 2px solid var(--primary);
+    }
+    
+    .package-tag {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--primary);
+      color: white;
+      padding: 0.3rem 1.2rem;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      z-index: 3;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .service-card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .service-price {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--light);
+      font-size: 1.8rem;
+    }
+    
+    .package-description {
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .service-features {
+      list-style-type: none;
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-features li {
+      padding-left: 1.8rem;
+      position: relative;
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+    }
+    
+    .service-features li:before {
+      content: '✓';
+      color: var(--success);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+    
+    .ideal-for {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--secondary);
+    }
+    
+    .ideal-for span {
+      color: var(--light);
+      font-weight: 600;
+    }
+    
+    .service-card .btn {
+      display: block;
+      width: 100%;
+    }
+    
+    .custom-package {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: var(--gray-200);
+      padding: 2rem;
+      border-radius: 12px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .custom-package h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .custom-package p {
+      margin-bottom: 1.5rem;
+      color: var(--secondary);
+    }
+    
+    /* Desktop layout (maximize available space) */
+    @media (min-width: 992px) {
+      .services-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 2.5rem;
+        width: 100%;
+      }
+      
+      .service-card {
+        flex: 1;
+        width: calc(50% - 1.25rem);
+        min-width: 350px;
+        margin-bottom: 0;
+      }
+    }
+  </style>
+  
+  <style>
+    /* Updated Services Section Styles */
+    .services {
+      background-color: var(--darker);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .pricing-note {
+      max-width: 700px;
+      margin: -1rem auto 2rem;
+      color: var(--secondary);
+      font-style: italic;
+      text-align: center;
+    }
+    
+    .services-grid {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 2.5rem;
+      overflow-x: auto;
+      padding-bottom: 1rem;
+      justify-content: center;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .services-grid::-webkit-scrollbar {
+      height: 6px;
+    }
+    
+    .services-grid::-webkit-scrollbar-track {
+      background: var(--gray-100);
+      border-radius: 10px;
+    }
+    
+    .services-grid::-webkit-scrollbar-thumb {
+      background: var(--gray-300);
+      border-radius: 10px;
+    }
+    
+    .service-card {
+      padding: 2.5rem;
+      border-radius: 12px;
+      background-color: var(--gray-200);
+      transition: all 0.5s ease;
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+      flex: 1 0 400px;
+      position: relative;
+      height: auto;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-card.premium-package,
+    .service-card.standard-package {
+      height: 100%;
+    }
+    
+    .service-card.premium-package {
+      border: 2px solid var(--primary);
+    }
+    
+    .package-tag {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--primary);
+      color: white;
+      padding: 0.3rem 1.2rem;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      z-index: 3;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .service-card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .service-price {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--light);
+      font-size: 1.8rem;
+    }
+    
+    .package-description {
+      color: var(--secondary);
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .service-features {
+      list-style-type: none;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .service-features li {
+      padding-left: 1.8rem;
+      position: relative;
+      margin-bottom: 0.8rem;
+      font-size: 1rem;
+    }
+    
+    .service-features li:before {
+      content: '✓';
+      color: var(--success);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+    
+    .ideal-for {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--secondary);
+    }
+    
+    .ideal-for span {
+      color: var(--light);
+      font-weight: 600;
+    }
+    
+    .service-card .btn {
+      align-self: center;
+      width: 100%;
+    }
+    
+    .custom-package {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: var(--gray-200);
+      padding: 2rem;
+      border-radius: 12px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .custom-package h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .custom-package p {
+      margin-bottom: 1.5rem;
+      color: var(--secondary);
+    }
+    
+    .section-title {
+      position: relative;
+      z-index: 1;
+    }
+    
+    @media (max-width: 992px) {
+      .service-card {
+        width: 350px;
+        flex: 1 0 350px;
+        padding: 2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .service-card {
+        width: 320px;
+        flex: 1 0 320px;
+      }
+      
+      .service-price {
+        font-size: 1.6rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .service-card {
+        width: 280px;
+        flex: 1 0 280px;
+        padding: 1.5rem;
+      }
+      
+      .package-tag {
+        font-size: 0.8rem;
+        padding: 0.25rem 1rem;
+      }
+      
+      .service-card h3 {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+      
+      <div class="faq-container animated fadeInUp">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How soon can you start on my project?</h3>
+            <div class="faq-toggle"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">
+            <p>I typically start new projects within 1-2 weeks of finalizing agreements. For smaller projects or current clients, I can sometimes accommodate faster turnarounds. My schedule is updated monthly, so please inquire about current availability.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>What does your content creation process look like?</h3>
+            <div class="faq-toggle"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">
+            <p>My process involves four key steps: 1) Thorough research of your industry, competitors, and target keywords, 2) Developing a detailed outline for your approval, 3) Writing high-quality, SEO-optimized content, and 4) Revisions based on your feedback. Each piece goes through multiple edits to ensure it meets the highest standards.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How do you ensure the content will rank on Google?</h3>
+            <div class="faq-toggle"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">
+            <p>While no one can guarantee specific rankings (beware of those who do!), my approach combines careful keyword research, search intent analysis, and SEO best practices. I analyze top-ranking content in your niche to identify patterns and opportunities, then create comprehensive content that addresses user needs better than what's currently ranking. My track record of first-page rankings demonstrates the effectiveness of this approach.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>Do you offer revisions for your content?</h3>
+            <div class="faq-toggle"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, all content packages include two rounds of revisions at no additional cost. I believe in getting your content right and ensuring you're completely satisfied. Additional revision rounds can be arranged if needed. My goal is to deliver content that perfectly aligns with your brand voice and strategic objectives.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <h3>How do you handle complex technical topics?</h3>
+            <div class="faq-toggle"><i class="fas fa-plus"></i></div>
+          </div>
+          <div class="faq-answer">
+            <p>I specialize in translating complex technical concepts into clear, accessible content. My approach involves thorough research, consulting with subject matter experts when needed, and breaking down complicated ideas into digestible sections. For highly specialized topics, I'll work closely with your team to ensure technical accuracy while maintaining readability for your target audience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    /* FAQ Section Styles */
+    .faq {
+      background-color: var(--dark);
+    }
+    
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .faq-item {
+      background-color: var(--gray-200);
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .faq-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+    
+    .faq-question {
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      border-left: 4px solid var(--primary);
+    }
+    
+    .faq-question h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--light);
+    }
+    
+    .faq-toggle {
+      color: var(--primary);
+      transition: all 0.3s ease;
+    }
+    
+    .faq-answer {
+      padding: 0 2rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.5s ease;
+    }
+    
+    .faq-answer p {
+      padding-bottom: 1.5rem;
+      color: var(--secondary);
+    }
+    
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+    }
+    
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+  </style>
+  
+  <script>
+    // Add this to your existing script section
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+          // Close all other items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+              otherItem.classList.remove('active');
+            }
+          });
+          
+          // Toggle current item
+          item.classList.toggle('active');
+        });
+      });
+    });
+  </script>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>Let's Connect</h2>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-info animated fadeInUp">
+          <h3>Need help with your content?</h3>
+          <p>I'm available for new projects and would be happy to discuss your content needs. Feel free to reach out through any of the channels below.</p>
+          
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>&nbsp;&nbsp;siddsharma.work@gmail.com</span>
+          </div>
+          
+          <div class="contact-item">
+            <i class="fas fa-phone"></i>
+            <span>&nbsp;&nbsp;WhatsApp: +917876441379</span>
+          </div>
+          
+          <div class="social-links">
+            <a href="https://www.linkedin.com/in/siddharth-sharma-writer/" target="_blank">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://wa.me/+917876441379" target="_blank">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="contact-form animated fadeInUp">
+          <form>
+            <div style="margin-bottom: 1.5rem;">
+              <label for="name" style="display: block; margin-bottom: 0.8rem; color: var(--light);">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" style="width: 100%; padding: 0.9rem; border-radius: 8px; background-color: var(--gray-200); color: var(--light); border: 1px solid var(--gray-300);">
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="email" style="display: block; margin-bottom: 0.8rem; color: var(--light);">Email</label>
+              <input type="email" id="email" name="email" placeholder="Your email" style="width: 100%; padding: 0.9rem; border-radius: 8px; background-color: var(--gray-200); color: var(--light); border: 1px solid var(--gray-300);">
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <label for="message" style="display: block; margin-bottom: 0.8rem; color: var(--light);">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell me about your project" style="width: 100%; padding: 0.9rem; border-radius: 8px; background-color: var(--gray-200); color: var(--light); border: 1px solid var(--gray-300);"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>Content for B2B SaaS and tech companies that ranks and converts.</p>
+        <div class="social-links" style="justify-content: center;">
+          <a href="https://www.linkedin.com/in/siddharth-sharma-writer/" target="_blank">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://wa.me/+917876441379" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+        <div class="copyright">
+          © 2025 CreatewithSid. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Font Awesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+  
+  <!-- Script for mobile improvements -->
+  <script>
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+    });
+    
+    // Improved Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const navLinks = document.querySelector('.nav-links');
+      
+      // Add close button to mobile menu
+      const closeButton = document.createElement('div');
+      closeButton.className = 'close-menu';
+      closeButton.innerHTML = '<i class="fas fa-times"></i>';
+      navLinks.prepend(closeButton);
+      
+      // Toggle menu on hamburger click
+      if (mobileMenu) {
+        mobileMenu.addEventListener('click', function(e) {
+          e.stopPropagation();
+          navLinks.classList.add('active');
+          document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+      }
+      
+      // Close menu when clicking the close button
+      closeButton.addEventListener('click', function() {
+        navLinks.classList.remove('active');
+        document.body.style.overflow = ''; // Re-enable scrolling
+      });
+      
+      // Close menu when clicking a link
+      const menuLinks = document.querySelectorAll('.nav-links a');
+      menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          navLinks.classList.remove('active');
+          document.body.style.overflow = ''; // Re-enable scrolling
+        });
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && e.target !== mobileMenu) {
+          navLinks.classList.remove('active');
+          document.body.style.overflow = ''; // Re-enable scrolling
+        }
+      });
+      
+      // Add scroll indicators
+      const scrollContainers = document.querySelectorAll('.solutions-grid, .expertise-grid, .services-grid, .portfolio-grid');
+      
+      scrollContainers.forEach(container => {
+        // Add indicator dots
+        const scrollIndicator = document.createElement('div');
+        scrollIndicator.className = 'scroll-indicator';
+        
+        // Calculate how many dots needed (total width / container width)
+        const totalScrollWidth = container.scrollWidth;
+        const containerWidth = container.clientWidth;
+        const slides = container.children.length;
+        
+        if (containerWidth < totalScrollWidth) {
+          // Only add indicators if scrolling is needed
+          for (let i = 0; i < slides; i++) {
+            const dot = document.createElement('div');
+            dot.className = i === 0 ? 'scroll-dot active' : 'scroll-dot';
+            scrollIndicator.appendChild(dot);
+          }
+          
+          container.parentNode.insertBefore(scrollIndicator, container.nextSibling);
+          
+          // Update active dot on scroll
+          container.addEventListener('scroll', function() {
+            const scrollPercentage = container.scrollLeft / (totalScrollWidth - containerWidth);
+            const activeDotIndex = Math.min(
+              Math.floor(scrollPercentage * slides),
+              slides - 1
+            );
+            
+            const dots = scrollIndicator.querySelectorAll('.scroll-dot');
+            dots.forEach((dot, index) => {
+              if (index === activeDotIndex) {
+                dot.classList.add('active');
+              } else {
+                dot.classList.remove('active');
+              }
+            });
+          });
+        }
+      });
+    });
+    
+    // Scroll animation
+    function checkScroll() {
+      const elements = document.querySelectorAll('.animated');
+      
+      elements.forEach(element => {
+        const position = element.getBoundingClientRect();
+        
+        // If element is in viewport
+        if (position.top < window.innerHeight - 50) {
+          element.classList.add('show');
+        }
+      });
+    }
+    
+    // Initial check
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        checkScroll();
+      }, 500);
+    });
+    
+    // Check on scroll
+    window.addEventListener('scroll', checkScroll);
+    
+    // FAQ Toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const faqItems = document.querySelectorAll('.faq-item');
+      
+      faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+          // Close all other items
+          faqItems.forEach(otherItem => {
+            if (otherItem !== item && otherItem.classList.contains('active')) {
+              otherItem.classList.remove('active');
+            }
+          });
+          
+          // Toggle current item
+          item.classList.toggle('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
